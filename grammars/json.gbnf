@@ -1,0 +1,123 @@
+root   ::= object
+value  ::= object | array | string | number | ("true" | "false" | "null") ws
+
+object ::=
+  "{" ws (
+            string ":" ws value
+    ("," ws string ":" ws value)*
+  )? "}" ws
+
+array  ::=
+  "[" ws (
+            value
+    ("," ws value)*
+  )? "]" ws
+
+string ::=
+  "\"" (
+    [^"\\] |
+    "\\" (["\\/bfnrt] | "u" [0-9a-fA-F] [0-9a-fA-F] [0-9a-fA-F] [0-9a-fA-F]) # escapes
+  )* "\"" ws
+
+number ::= ("-"? ([0-9] | [1-9] [0-9]*)) ("." [0-9]+)? ([eE] [-+]? [0-9]+)? ws
+
+# Optional space: by convention, applied in this grammar after literal chars when allowed
+ws ::= ([ \t\n] ws)?
+
+sentence ::= subject predicate "."
+subject  ::= determiner noun
+predicate ::= verb (preposition object | noun | interjection)
+determiner ::= "a" | "an" | "the"
+noun ::= "user" | "api" | "call"
+verb ::= "make" | "send" | "receive"
+preposition ::= "with" | "to" | "from"
+interjection ::= "yes" | "no"
+
+<jarvis-batman-language> ::= <statement> | <question> | <directive> | <response>
+
+<statement> ::= <subject> <intransitive-verb> <complement>
+
+<question> ::= <auxiliary> <subject> <transitive-verb> <complement>
+
+<directive> ::= <modal-verb> <auxiliary> <subject> <transitive-verb>
+
+<response> ::= <greeting> <exclamation> <interjection>
+
+<subject> ::= "B.A.T.M.A.N" | "Batman_AI"
+
+<intransitive-verb> ::= "analyze" | "monitor" | "defend" | "operate"
+
+<complement> ::= <noun-phrase> | <prepositional-phrase>
+
+<noun-phrase> ::= <article>? <noun> (<adjective>? <noun>)*
+
+<article> ::= "the" | "a" | "an"
+
+<noun> ::= "threat" | "protocol" | "system" | "capability" | "mission"
+
+<adjective> ::= "cyber" | "autonomous" | "classified" | "advanced" | "real-time"
+
+<prepositional-phrase> ::= <preposition> <noun-phrase>
+
+<preposition> ::= "with" | "for" | "in" | "to"
+
+<auxiliary> ::= "will" | "can" | "may" | "shall"
+
+<transitive-verb> ::= "enhance" | "utilize" | "counter" | "safeguard"
+
+<modal-verb> ::= "should" | "must" | "is to"
+
+<greeting> ::= "Hello" | "Greetings" | "Salutations"
+
+<exclamation> ::= "Indeed" | "Certainly" | "Absolutely"
+
+<interjection> ::= "Sir" | "Master Perez" | "B.A.T.M.A.N"
+
+<jarvis-batman-language> ::= (<codewords-section> | <question-answer-section>)
+
+<codewords-section> ::= "CODEWORDS PROJECTS" ":" <codewords-project> ("," <codewords-project>)* "."
+
+<codewords-project> ::= <code-phrase> <project-status>
+
+<project-status> ::= "initiated" | "in progress" | "completed" | "pending"
+
+<question-answer-section> ::= "Q&A SECTION" ":" <question-answer> ("," <question-answer>)* "."
+
+<question-answer> ::= <question> <answer>
+
+<question> ::= <interrogative-word>? <auxiliary> <subject> <transitive-verb> <complement>
+
+<answer> ::= <response> | <directive>
+
+<interrogative-word> ::= "What" | "How" | "Why" | "When" | "Where"
+
+<subject> ::= "B.A.T.M.A.N.A.I" | "Batman_AI"
+
+<intransitive-verb> ::= "analyze" | "monitor" | "defend" | "operate"
+
+<complement> ::= <noun-phrase> | <prepositional-phrase>
+
+<noun-phrase> ::= <article>? <noun> (<adjective>? <noun>)*
+
+<article> ::= "the" | "a" | "an"
+
+<noun> ::= "threat" | "protocol" | "system" | "capability" | "mission"
+
+<adjective> ::= "cyber" | "autonomous" | "classified" | "advanced" | "real-time"
+
+<prepositional-phrase> ::= <preposition> <noun-phrase>
+
+<preposition> ::= "with" | "for" | "in" | "to"
+
+<auxiliary> ::= "will" | "can" | "may" | "shall"
+
+<transitive-verb> ::= "enhance" | "utilize" | "counter" | "safeguard"
+
+<modal-verb> ::= "should" | "must" | "is to"
+
+<greeting> ::= "Hello" | "Greetings" | "Salutations"
+
+<exclamation> ::= "Indeed" | "Certainly" | "Absolutely"
+
+<interjection> ::= "Sir" | "Master Perez" | "B.A.T.M.A.N.A.I"
+
