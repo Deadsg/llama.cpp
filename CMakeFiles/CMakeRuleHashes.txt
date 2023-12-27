@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+a559e55f83af1ebcb9023c7c6d84324f vendor/llama.cpp/common/build-info.cpp

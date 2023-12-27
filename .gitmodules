@@ -1,6 +1,3 @@
-[submodule "Bat_llama.cpp"]
-	path = Bat_llama.cpp
-	url = https://github.com/Deadsg/llama.cpp
-[submodule "ollama"]
-	path = ollama
-	url = https://github.com/Deadsg/ollama
+[submodule "vendor/llama.cpp"]
+	path = vendor/llama.cpp
+	url = https://github.com/ggerganov/llama.cpp.git
